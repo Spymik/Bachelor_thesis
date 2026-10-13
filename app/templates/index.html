@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAW PATROL</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+*{
+    box-sizing: border-box;
+    text-transform: capitalize;
+    padding: 0%;
+    margin: 0%;
+    transition: all 0.5s linear;
+    font-family: "Manrope", sans-serif;
+}
+body{
+    color: #fff;
+    background-color: #171717;
+}
+.navbar{
+    display: flex;
+    position: fixed;
+    top: 0;
+    padding: 1% 0;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+    transition: background-color 0.5s;
+    z-index: 1;
+    color: #fff;
+    height: 12vh;
+}
+.navbar.scrolled{
+    background-color: #2b2b2b;
+    box-shadow: 0 2px 5px rgba(225, 162, 0, 0.2);
+}
+.navbar-items{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo{
+    font-size: 2em;
+    font-weight: 600;
+}
+.logo span{
+    color: orange;
+}
+.navbar-items ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 16px;
+}
+.navbar-items ul li a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #fff;
+}
+.navbar-items ul li::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background: rgb(255, 165, 0);
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.navbar-items ul li:hover::after{
+    width: 100%;
+}
+.burger{
+    display: none;
+}
+.nav_search{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 5em;
+    cursor: pointer;
+}
+.nav_search input{
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    position: absolute;
+    right: 30px;
+    outline: none;
+    border: 2px solid #fff;
+    background-color: #000;
+    color: #fff;
+    transition: width 0.3s ease, padding 0.3s ease;
+}
+.nav_search span{
+    position: relative;
+    z-index: 1;
+    font-size: 22px;
+}
+.nav_search.active input{
+    width: 150px;
+    padding: 5px;
+    opacity: 1;
+    position: absolute;
+    right: 30px;
+}
+/* _________home-sec */
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
+.line{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    left: 6%;
+    top: 20%;
+    position: absolute;
+}
+.vertical-line{
+    width: 1px;
+    height: 450px;
+    background-color: #fff;
+    margin-right: 10px;
+}
+.vertical-text{
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+.icons{
+    color: #fff;
+    right: 9%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 35%;
+}
+.icons i{
+    font-size: 35px;
+    padding: 0.2rem;
+    cursor: pointer;
+    margin: 0.5rem 0;
+    border-radius: 50%;
+    flex: 1;
+}
+.icons i:hover{
+    background-color: orange;
+    color: #000;
+    transform: scale(1.1);
+}
+.img{
+    position: relative;
+    top: 25%;
+}
+.img img{
+    width: 650px;
+    animation: slideLeft 4s ease-in-out;
+}
+.content{
+    position: absolute;
+}
+.content h1{
+    font-size: 12em;
+    color: #ffa500;
+    animation: fadeIn 3s ease-in-out;
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes slideLeft{
+    from{
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+/* ________about-sec */
+.sec{
+    padding-top: 8%;
+    width: 85%;
+    margin: auto;
+    text-align: center;
+}
+.heading{
+    font-size: 4em;
+    color: orange;
+    text-align: center;
+}
+.about_content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+    margin-top: 5%;
+}
+.A_img{
+    grid-area: 1 / 2 / 2 / 3;
+}
+.About_boxes{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    gap: 4rem 2rem;
+    text-align: left;
+}
+.About_box h3{
+    font-size: 3em;
+}
+.About_box h4{
+    font-size: 20px;
+    padding: 5px 0;
+}
+.About_box p{
+    color: #999;
+}
+.A_img img{
+    width: 100%;
+}
+/* ________blog-sec */
+.Blog_boxes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding-top: 3%;
+}
+.b_box{
+    flex-basis: 22%;
+    background-color: #2b2b2b;
+    padding: 1%;
+    margin: 2%;
+}
+.b_box:hover{
+    box-shadow: rgba(0,0,0,2.35) 10px 10px 15px;
+    transform: translateY(-8%);
+}
+.b_box img{
+    width: 100px;
+}
+.b_box h3{
+    padding-top: 12px;
+    font-weight: 400;
+}
+/* _________-products-sec */
+.boxes{
+    display: flex;
+    margin: 6% 0;
+}
+.box{
+    margin: 0 2%;
+    border: 2px solid orange;
+    padding: 3% 2%;
+    box-shadow: rgba(0,0,0,2.35) 0 5px 15px;
+    cursor: pointer;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+.box h1{
+    padding: 10px 0;
+}
+.box p{
+    color: #999;
+}
+.box img{
+    width: 200px;
+}
+.box:hover{
+    transform:  scale(1.1) rotate(5deg);
+}
+.btn{
+    padding: 12px;
+    background-color: #2b2b2b;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 2px solid orange;
+    margin-bottom: 1%;
+}
+.btn:hover{
+    color: #000;
+    background-color: orange;
+}
+/* _______footer */
+.footer{
+    margin-top: 5%;
+    background-color: #2b2b2b;
+}
+.footer_container{
+    width: 85%;
+    padding: 5rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    gap: 4rem 2rem;
+    margin: auto;
+}
+.col ul{
+    list-style: none;
+}
+.col li a{
+    text-decoration: none;
+    color: #ccc;
+}
+.socials{
+    display: flex;
+}
+.socials li i{
+    padding-right: 12px;
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+.socials li i:hover{
+    color: orange;
+}
+.col h4{
+    font-size: 26px;
+}
+.col p, .col li{
+    margin: 1rem 0;
+    color: #ccc;
+}
+.F_logo{
+    font-size: 2em;
+    font-weight: 600;
+}
+.footer_bar{
+    text-align: center;
+    padding: 12px;
+}
+/* ________Scroll-up */
+.top{
+    color: #fff;
+    font-size: 40px;
+    position: fixed;
+    right: 5%;
+    transition: bottom .4s transform .4s;
+    cursor: pointer;
+    bottom: -50%;
+}
+.top:hover{
+    transform: translateY(-.6rem);
+}
+.top.show{
+    bottom: 8%;
+}
+@media only screen and (max-width:940px){
+    .navbar-items{
+        position: absolute;
+        height: 100vh;
+        width: 350px;
+        top: 0;
+        background-color: #2b2b2b;
+        text-align: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        z-index: 2;
+        margin-top: 0;
+        transition: all 1s ease-in;
+    }
+    .navbar-items ul{
+        padding-right: 5px;
+    }
+    .navbar-items ul li{
+        display: block;
+        padding: 16px 0;
+        margin-left: 15px;
+    }
+    .navbar-items ul li a{
+        color: #fff;
+        padding: 0 18px;
+        font-size: 22px;
+    }
+    .burger{
+        display: block;
+        z-index: 3;
+        position: absolute;
+        color: #fff;
+        right: 7%;
+        top: 20px;
+        font-size: 35px;
+    }
+    .h-class{
+        left: -100%;
+    }
+    .v-class{
+        left: 0%;
+    }
+    .nav_search {
+        margin-left: 11em;
+    }
+    .icons {
+        right: 5%;
+    }
+    .content h1 {
+        font-size: 9em;
+    }
+    .img{
+        top: 20%;
+    }
+    .img img{
+        width: 500px;
+    }
+    .about_content{
+        grid-template-columns: 1fr;
+    }
+    .A_img{
+        grid-area: 1 /1 /2 /2 ;
+    }
+    .b_box{
+        flex-basis: 29%;
+        margin-top: 5%;
+    }
+    .sec{
+        padding-top: 10%;
+    }
+    .boxes{
+        flex-direction: column;
+    }
+    .box{
+        margin: 6% 2%;
+    }
+    .footer_container{
+        grid-template-columns: repeat(3,1fr);
+        width: 95%;
+    }
+}
+@media only screen and (max-width:645px){
+.img img{
+    width: 400px;
+}
+.content h1{
+    font-size: 7em;
+}
+.b_box {
+    flex-basis: 40%;
+}
+.footer_container {
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+@media only screen and (max-width:540px){
+    .img img{
+        width: 330px;
+    }
+    .content h1{
+        font-size: 5.3em;
+    }
+    .img{
+        top: 16%;
+    }
+    .line{
+        left: 3%;
+        top: 25%;
+    }
+    .vertical-line{
+        height: 370px;
+        margin-right: 3px;
+    }
+    .vertical-text{
+        font-size: 18px;
+    }
+    .navbar-items{
+        width: 250px;
+    }
+    .b_box {
+        flex-basis: 46%;
+    }
+    .icons i {
+        font-size: 27px;
+    }
+}
+@media only screen and (max-width:400px){
+.About_boxes{
+    grid-template-columns: 1fr;
+    gap: 1rem 2rem;
+}
+.b_box{
+    flex-basis: 95%;
+}
+.img{
+    top: 13%;
+}
+.img img{
+    width: 290px;
+}
+.content h1{
+    font-size: 5em;
+}
+.icons{
+    right: 3%;
+}
+.sec{
+    padding-top: 22%;
+}
+.footer_container{
+    grid-template-columns: repeat(1,1fr);
+    padding: 3rem 1rem;
+    gap: 1rem 2rem;
+}
+}
+
+/* How It Works Section */
+#how-it-works {
+    background-color: #171717; /* Match to your existing background color */
+    padding: 60px 0;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+.section-title {
+    font-size: 2.5em;
+    color: #333; /* Match to your existing text color */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    margin-left: 250px;
+    margin-top: 50px;
+
+}
+
+.video-box {
+    max-width: 100%;
+    border: 2px solid orange; /* Match to your existing border style */
+    border-radius: 8px; /* Match to your existing border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Match to your existing shadow style */
+}
+.video-wrapper:hover{
+    scale: 1.1;
+}
+/* Preloader Style */
+/* Preloader Style */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* Fallback background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease; /* Smooth fade-out transition */
+    border: 2px solid #171717;
+}
+
+#preloader.fade-out {
+    opacity: 0; /* Fade out the preloader */
+    visibility: hidden; /* Hides the element after the fade-out */
+    transition: opacity 1s ease, visibility 0s 1s; /* Wait for opacity to complete before hiding visibility */
+}
+
+#preloader-video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Hide the content initially */
+#content {
+    display: none;
+}
+
+
+</style>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <video autoplay muted loop id="preloader-video">
+            <source src="{{ url_for('static', filename='assets/img/preploader.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <!-- preloader end -->
+    <section class="background">
+
+        <div class="navbar">
+            <nav class="navbar-items h-class">
+                <div class="logo">PAW<span>PATROL</span></div>
+                <ul class="nav v-class">
+                    <li><a href="#HOME">HOME</a></li>
+                    <li><a href="#ABOUT">ABOUT</a></li>
+                    <li><a href="#PRODUCTS">SERVICES</a></li>
+                    <li><a href="/dashboard">DASHBOARD</a></li>
+                </ul>
+                <div class="nav_search" id="nav-search">
+                    <input type="text" name="search" placeholder="search"/>
+                    <span id="search-icon"><i class="ri-search-2-line"></i></span>
+                </div>
+            </nav>
+            <div class="burger">&#9776</div>
+        </div>
+        <!-- _________HOME  -->
+         <div class="row" id="HOME">
+            <div class="line">
+                <div class="vertical-line"></div>
+                <div class="vertical-text">a new era of drones</div>
+            </div>
+            <div class="main">
+                <div class="content">
+                    <h1 style="font-size:70px; text-align:center;">DRONE BASED <br>WILDLIFE PROTECTION SYSTEM</h1>
+                </div>
+                <div class="img">
+                    <img src="{{ url_for('static', filename='assets/img/img1.png') }}" alt="">
+                </div>
+            </div>
+            <div class="icons">
+                <i class="ri-facebook-circle-line"></i>
+                <i class="ri-instagram-line"></i>
+                <i class="ri-whatsapp-line"></i>
+            </div>
+         </div>  
+    </section>
+    <!-- _________ABOUT -->
+     <section class="sec" id="ABOUT">
+        <h1 class="heading">about us</h1>
+        <div class="about_content">
+
+            <div class="A_img">
+                <img src="{{ url_for('static', filename='assets/img/img2.jpg') }}" alt="">
+            </div>
+
+            <div class="About_boxes">
+                <div class="About_box">
+                    <h3>1.</h3>
+                    <h4>Who we are</h4>
+                    <p>Pioneering wildlife conservation with state-of-the-art autonomous drone technology.</p>
+                </div>
+                <div class="About_box">
+                    <h3>2.</h3>
+                    <h4>What do we do</h4>
+                    <p>We deliver real-time, efficient, and intelligent wildlife monitoring through advanced object detection and multi-modal integration.</p>
+                </div>
+                <div class="About_box">
+                    <h3>3.</h3>
+                    <h4>how do we help</h4>
+                    <p>Our solution revolutionizes conservation by increasing coverage, reducing response time, and enhancing operational efficiency.</p>
+                </div>
+                <div class="About_box">
+                    <h3>4.</h3>
+                    <h4>create success story</h4>
+                    <p>Transforming wildlife monitoring with cutting-edge innovations, ensuring better protection and sustainability.</p>
+                </div>
+            </div>
+
+        </div>
+     </section>
+
+      <!-- _________products -->
+       <section class="sec" id="PRODUCTS">
+        <h1 class="heading">Services</h1>
+
+        <div class="boxes">
+            <div class="box">
+                <img src="{{ url_for('static', filename='assets/img/video.jpeg') }}" alt="">
+                <h1>Video Detection</h1>
+                <p>Efficient and precise video-based crack detection using advanced drone imaging technology.</p>
+            </div>
+            <div class="box">
+                <img src="{{ url_for('static', filename='assets/img/webcam.jpeg') }}" alt="">
+                <h1>Webcam Detection</h1>
+                <p>Real-time crack detection using onboard webcams for close-range troubleshooting and testing.</p>
+            </div>
+            <div class="box">
+                <img src="{{ url_for('static', filename='assets/img/monitoring.jpeg') }}" alt="">
+                <h1>RTSP Detection</h1>
+                <p>Stream and analyze live footage through RTSP for continuous monitoring.</p>
+            </div>
+        </div>
+        <button class="btn btn1">view more</button>
+       </section>
+       <!-- _________footer -->
+        <footer class="footer">
+
+            <div class="footer_container">
+
+                <div class="col">
+                    <div class="F_logo">
+                        PAW PATROL
+                    </div>
+                    <p>Leading the way in drone-based wildlife protection and safety.</p>
+                    <ul class="socials">
+                        <li><i class="ri-facebook-fill"></i></li>
+                        <li><i class="ri-twitter-fill"></i></li>
+                        <li><i class="ri-linkedin-fill"></i></li>
+                        <li><i class="ri-pinterest-fill"></i></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>Servives</h4>
+                    <ul class="links">
+                        <li><a href="#">contact us</a></li>
+                        <li><a href="#">press</a></li>
+                        <li><a href="#">payrol</a></li>
+                        <li><a href="#">library</a></li>
+                        <li><a href="#">blog</a></li>
+                        <li><a href="#">help center</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>resources</h4>
+                    <ul class="links">
+                        <li><a href="#">pricing</a></li>
+                        <li><a href="#">FAQS</a></li>
+                        <li><a href="#">contact support</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">terms</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h4>support</h4>
+                    <ul class="links">
+                        <li><a href="#">contact</a></li>
+                        <li><a href="#">affiliates</a></li>
+                        <li><a href="#">sitemap</a></li>
+                        <li><a href="#">cancelation policy</a></li>
+                        <li><a href="#">security</a></li>
+                        <li><a href="#">help center</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </footer>
+        <span class="top" id="to-top"><i class="ri-arrow-up-circle-line"></i></span>
+        <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script src="index.js"></script>
+</body>
+<script>
+
+    // Preloader
+    window.addEventListener("load", function () {
+        var preloader = document.getElementById("preloader");
+        var content = document.getElementById("content");
+    
+        // Ensure the preloader stays for at least 5 seconds
+        setTimeout(function() {
+            // Add the fade-out class to initiate the smooth transition
+            preloader.classList.add('fade-out');
+    
+            // Show the content after the transition completes (adjust timing to match transition duration)
+            setTimeout(function() {
+                preloader.style.display = "none"; // Remove preloader completely after fade-out
+                content.style.display = "block";
+            }, 1000); // Wait for 1 second (duration of fade-out transition)
+        }, 5000); // 5000 milliseconds = 5 seconds
+    });
+    
+    
+    
+    //navbar Search_Bar
+
+const navSearch =document.getElementById('nav-search')
+const searchIcon =document.getElementById('search-icon')
+
+searchIcon.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    navSearch.classList.toggle('active')
+});
+
+document.addEventListener('click',(e)=>{
+    if(!navSearch.contains(e.target)){
+        navSearch.classList.remove('active')
+    }
+})
+
+//navbar scroll
+window.addEventListener('scroll',()=>{
+    let navbar=document.querySelector('.navbar');
+    if(window.scrollY >20){
+        navbar.classList.add('scrolled')
+    }else{
+        navbar.classList.remove('scrolled')
+    }
+});
+
+//Scroll_top
+
+document.querySelector('#to-top').addEventListener('click',()=>{
+
+    let TopInterval = setInterval(()=>{
+        
+        let ArrowTop = document.body.scrollTop > 0 ? document.body : document.documentElement;
+
+        if(ArrowTop.scrollTop > 0){
+            ArrowTop.scrollTop = ArrowTop.scrollTop - 50 ;
+        }
+        if(ArrowTop.scrollTop < 1){
+            clearInterval(TopInterval);
+        }
+    }, 10)
+}, false);
+
+function showscroll(){
+    let TopButton = document.getElementById('to-top');
+    if(document.body.scrollTop > 100 || document.documentElement.scrollTop >100){
+        TopButton.classList.add('show')
+    }else{
+        TopButton.classList.remove('show')
+    }
+}
+
+window.onscroll = () =>{
+    showscroll();
+} 
+
+// sidebar
+let burger =document.querySelector('.burger')
+let NavbarItems =document.querySelector('.navbar-items')
+let nav =document.querySelector('.nav');
+
+burger.addEventListener('click',()=>{
+    NavbarItems.classList.toggle('v-class')
+    nav.classList.toggle('h-class')
+});
+
+// scrollRevealAnimation
+
+ScrollReveal().reveal('.icons i',{
+    duration:1000,
+    origin:'bottom',
+    distance:'50px',
+    interval:200,
+    reset:true
+});
+ScrollReveal().reveal('.A_img img ',{
+    duration:1000,
+    origin:'bottom',
+    distance:'100px',
+    interval:200,
+    reset:true
+});
+ScrollReveal().reveal('.About_box',{
+    duration:1000,
+    origin:'bottom',
+    distance:'100px',
+    interval:200,
+    reset:true
+});
+ScrollReveal().reveal('.b_box',{
+    duration:1000,
+    origin:'bottom',
+    distance:'100px',
+    interval:200,
+    reset:true
+});
+ScrollReveal().reveal('.box', {
+    duration: 1000,
+    origin: 'bottom',
+    distance: '100px',
+    interval: 200
+  });
+ScrollReveal().reveal('.col',{
+    duration:1000,
+    origin:'bottom',
+    distance:'100px',
+    interval:200,
+    reset:true
+})
+</script>
+</html>

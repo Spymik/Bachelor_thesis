@@ -1,0 +1,696 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone-Based Crack Detection Dashboard</title> -->
+    <!-- Include Bootstrap and Font Awesome for styling -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+        body {
+            background-color: #171717; /* Dark background */
+            font-family: "Manrope", sans-serif;
+            color: #fff;
+        }
+
+        .content-wrapper {
+            padding: 20px;
+        }
+
+        .content-header h1 {
+            color: #ffa500; /* Orange color */
+            font-weight: 700;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+        }
+
+        .breadcrumb a {
+            color: #ffa500;
+        }
+
+        .card {
+            background-color: #2b2b2b; /* Slightly lighter dark background */
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+
+        .card-header {
+            background-color: #2b2b2b;
+            color: #ffa500;
+            border-radius: 10px 10px 0 0;
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .btn-primary {
+            background-color: #ffa500;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff8c00;
+        }
+
+        .form-signin h1 {
+            font-weight: 600;
+        }
+
+        .form-signin input[type="file"] {
+            display: none;
+        }
+
+        .upload-container {
+            border: 2px dashed #ffa500; /* Orange border */
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            color: #ffa500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .upload-container:hover {
+            background-color: #333333; /* Darker hover effect */
+        }
+
+        .upload-container.dragover {
+            background-color: #444444;
+            border-color: #ff8c00; /* Slightly darker orange when dragged over */
+        }
+
+        .upload-container p {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .box {
+            margin-top: 20px;
+        }
+
+        .box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffa500;
+            border: none;
+            color: #171717;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .box button:hover {
+            background-color: #ff8c00;
+            color: #fff;
+        }
+
+        img, video {
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-wrapper"> -->
+        <!-- Content Header (Page header) -->
+        <!-- <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6"> 
+                        Optional Breadcrumb or Heading 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main content 
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row"></div>
+
+                <div class="row">
+                    <!-- Left col 
+                    <section class="col-lg-6 connectedSortable">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Upload for Object Detection</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content p-0">
+                                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 700px;">
+
+                                        <!-- Upload Form 
+                                        <form class="form-signin" method="post" enctype="multipart/form-data" name="form1" id="uploadForm">
+                                            <div class="upload-container" id="uploadContainer">
+                                                <p>Drag & Drop videos here or <span>Browse</span></p>
+                                                <input type="file" name="file" class="form-control-file" id="inputfile" multiple>
+                                            </div>
+                                            <button class="btn btn-primary btn-block" type="submit">Upload</button>
+                                        </form>
+
+                                        <!-- Webcam 
+                                        <div class="box">
+                                            <button id="start-webcam" onclick="startWebcam()" class="btn btn-primary btn-block">Start Webcam</button>
+                                            <script>
+                                                function startWebcam() {
+                                                    window.location.href = "/webcam_feed";
+                                                }
+                                            </script>
+                                        </div>
+
+                                        <!-- RTSP Stream 
+                                        <div class="box">
+                                            <button id="start-rtsp" onclick="startrtsp()" class="btn btn-primary btn-block">Start RTSP Stream</button>
+                                            <script>
+                                                function startrtsp() {
+                                                    window.location.href = "/rtsp_feed";
+                                                }
+                                            </script>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Right col -->
+               <!--     <section class="col-lg-6 connectedSortable">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Object Detection Results</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content p-0">
+                                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 700px;">
+                                        {% if image_path %}
+                                        <img id="my-image" src="{{ url_for('detection.result_file', filename=image_path) }}" style="height: 540px; width: 540px; display: none;" />
+
+                                        <script>
+                                            document.getElementById("my-image").onload = function () {
+                                                this.style.display = "block";
+                                            };
+                                        </script>
+                                        {% endif %}
+
+                                        {% if video_path %}
+                                        <img id="my-video-image" src="{{ url_for('streams.video_feed', name=video_path) }}" style="height: 640px; width: 540px; display: none;" />
+
+                                        <script>
+                                            document.getElementById("my-video-image").onload = function () {
+                                                this.style.display = "block";
+                                            };
+                                        </script>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+<script>
+    const uploadContainer = document.getElementById('uploadContainer');
+    const inputFile = document.getElementById('inputfile');
+
+    uploadContainer.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        uploadContainer.classList.add('dragover');
+    });
+
+    uploadContainer.addEventListener('dragleave', () => {
+        uploadContainer.classList.remove('dragover');
+    });
+
+    uploadContainer.addEventListener('drop', (event) => {
+        event.preventDefault();
+        uploadContainer.classList.remove('dragover');
+        inputFile.files = event.dataTransfer.files;
+    });
+
+    uploadContainer.addEventListener('click', () => {
+        inputFile.click();
+    });
+
+    inputFile.addEventListener('change', () => {
+        uploadContainer.querySelector('p').textContent = inputFile.files.length
+            ? `${inputFile.files.length} file(s) selected`
+            : 'Drag & Drop files here or Browse';
+    });
+</script>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Include Bootstrap and Font Awesome for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap');
+
+        body {
+            background-color: #171717;
+            font-family: "Manrope", sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #1f1f1f;
+            padding: 15px;
+        }
+
+        .navbar-brand {
+            color: #ffa500;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            margin-right: 20px;
+            font-size: 1rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffa500;
+        }
+
+        /* Main content */
+        .content-wrapper {
+            padding: 40px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        /* Cards */
+        .card {
+            background-color: #2b2b2b;
+            border: none;
+            border-radius: 12px;
+            margin: 20px;
+            width: 45%;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+        }
+
+        .card-header {
+            background-color: #2b2b2b;
+            color: #ffa500;
+            font-size: 1.6rem;
+            font-weight: 700;
+            border-bottom: none;
+        }
+
+        .card-body {
+            padding: 20px;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: #ffa500;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff8c00;
+        }
+
+        /* File upload section */
+        .upload-container {
+            border: 2px dashed #ffa500;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            color: #ffa500;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .upload-container:hover {
+            background-color: #333;
+        }
+
+        .upload-container.dragover {
+            background-color: #444;
+            border-color: #ff8c00;
+        }
+
+        .upload-container p {
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer a {
+            color: #ffa500;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            color: #ff8c00;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        /* Style for upload container */
+.upload-container {
+    position: relative;
+    border: 2px dashed #ffa500;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    color: #ffa500;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #2b2b2b;
+}
+
+.upload-container:hover {
+    background-color: #333;
+}
+
+.upload-container p {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.upload-container span {
+    color: #ff8c00;
+    text-decoration: underline;
+}
+
+.upload-container.dragover {
+    background-color: #444;
+    border-color: #ff8c00;
+}
+
+/* Style for the button */
+.btn-primary {
+    background-color: #ffa500;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ff8c00;
+}
+
+/* Adjust spacing */
+.mt-4 {
+    margin-top: 1.5rem;
+}
+/* Styling for the card title */
+.card-title {
+    color: #ffa500;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+/* Styling for the card header */
+.card-header {
+    background-color: #2b2b2b;
+    border-bottom: 1px solid #ffa500;
+    padding: 15px;
+}
+
+/* Styling for the image and video in the object detection result */
+.result-image {
+    height: 540px; /* You can adjust this depending on your design */
+    width: 100%;   /* Make sure the image scales based on container */
+    object-fit: contain; /* Ensures that the image maintains its aspect ratio */
+    display: block;
+    margin: 0 auto; /* Centers the image */
+    background-color: #171717; /* Ensures proper background color */
+    border: 1px solid #ffa500; /* Matches the color scheme */
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* General styling for card content */
+.card-body {
+    padding: 20px;
+    background-color: #2b2b2b;
+    color: #fff;
+    border-radius: 0 0 12px 12px;
+}
+
+/* Styling for responsiveness */
+@media (max-width: 768px) {
+    .result-image {
+        height: auto;  /* Ensures the image scales down on smaller screens */
+        width: 100%;   /* Full width for small devices */
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+}
+/* Styling for connectedSortable */
+.connectedSortable {
+    background-color: #2b2b2b; /* Background color for the sortable column */
+    border: 1px solid #ffa500; /* Border color */
+    border-radius: 12px; /* Rounded corners */
+    margin: 20px 0; /* Space around the column */
+    padding: 15px; /* Padding inside the column */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 300px;
+}
+.cardres {
+    background-color: #2b2b2b;
+    border: none;
+    border-radius: 12px;
+    margin: 20px;
+    width: 95%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cardres:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+}
+
+.cardres-header {
+    background-color: #2b2b2b;
+    color: #ffa500;
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-bottom: none;
+}
+
+.cardres-body {
+    padding: 20px;
+    color: #fff;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#" style="color: white; padding-left:50px">CRACK<span style="color: #ff8c00;">ED</span></a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" >
+                    <a class="nav-link" href="/" style="font-size: larger;font-weight:bold">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#ABOUT" style="font-size: larger;font-weight:bold">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#PRODUCTS" style="font-size: larger;font-weight:bold">Products</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Upload Form Card -->
+        <div class="card">
+            <div class="card-header">
+                Upload for Object Detection
+            </div>
+            <div class="card-body">
+                <form class="form-signin" method="post" enctype="multipart/form-data" name="form1" id="uploadForm">
+                    <div class="upload-container" id="uploadContainer">
+                        <p>Drag & Drop videos here or <span>Browse</span></p>
+                        <input type="file" name="file" class="form-control-file" id="inputfile" multiple style="display: none;">
+                    </div>
+                    <button class="btn btn-primary btn-block mt-4" type="submit">Upload</button>
+                </form>
+            </div>
+            
+        </div>
+
+        <!-- Live Feed Card -->
+        <div class="card">
+            <div class="card-header">
+                Live Object Detection
+            </div>
+            <div class="card-body">
+                <div class="box">
+                    <button id="start-webcam" onclick="startWebcam()" class="btn btn-primary btn-block">Start Webcam</button>
+                    <script>
+                        function startWebcam() {
+                            window.location.href = "/webcam_feed";
+                        }
+                    </script>
+                </div>
+
+                <div class="box mt-3">
+                    <button id="start-rtsp" onclick="startRTSP()" class="btn btn-primary btn-block">Start RTSP Stream</button>
+                    <script>
+                        function startRTSP() {
+                            window.location.href = "/rtsp_feed";
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="col-lg-6 connectedSortable">
+        <div class="cardres">
+            <div class="card-header">
+                <h3 class="card-title">Object Detection Results</h3>
+            </div>
+            <div class="card-body">
+                <div class="tab-content p-0">
+                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: auto;">
+                        <!-- Image for Object Detection -->
+                        {% if image_path %}
+                        <img id="my-image" src="{{ url_for('detection.result_file', filename=image_path) }}" class="result-image" style="display: none;" />
+
+                        <script>
+                            document.getElementById("my-image").onload = function () {
+                                this.style.display = "block";
+                            };
+                        </script>
+                        {% endif %}
+
+                        <!-- Video for Object Detection -->
+                        {% if video_path %}
+                        <img id="my-video-image" src="{{ url_for('streams.video_feed', name=video_path) }}" class="result-image" style="display: none;" />
+
+                        <script>
+                            document.getElementById("my-video-image").onload = function () {
+                                this.style.display = "block";
+                            };
+                        </script>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Crack Detector. <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <!-- Script for File Upload Drag and Drop -->
+    <script>
+        const uploadContainer = document.getElementById('uploadContainer');
+        const inputFile = document.getElementById('inputfile');
+
+        uploadContainer.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            uploadContainer.classList.add('dragover');
+        });
+
+        uploadContainer.addEventListener('dragleave', () => {
+            uploadContainer.classList.remove('dragover');
+        });
+
+        uploadContainer.addEventListener('drop', (event) => {
+            event.preventDefault();
+            uploadContainer.classList.remove('dragover');
+            inputFile.files = event.dataTransfer.files;
+        });
+
+        uploadContainer.addEventListener('click', () => {
+            inputFile.click();
+        });
+
+        inputFile.addEventListener('change', () => {
+            uploadContainer.querySelector('p').textContent = inputFile.files.length
+                ? `${inputFile.files.length} file(s) selected`
+                : 'Drag & Drop files here or Browse';
+        });
+    </script>
+
+</body>
+
+</html>

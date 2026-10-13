@@ -1,0 +1,33 @@
+# Virtualenv
+myenv/
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Secrets
+.env
+
+# Runtime data: uploads and rendered detections
+data/uploads/*
+data/outputs/*
+!data/uploads/.gitkeep
+!data/outputs/.gitkeep
+
+# Model weights. wildlide.pt is tracked; the rest are fetched at deploy time.
+models/*.pt
+!models/wildlide.pt
+
+# Large media that exceeds GitHub's 100 MB file limit
+app/static/Drone_vid.mp4
+
+# Deploy
+.vercel
+
+# Misc
+Drone-Web
+.DS_Store
